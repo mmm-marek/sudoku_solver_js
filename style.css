@@ -1,0 +1,89 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #a8dadc;
+}
+
+.cell {
+    border : 3px black solid;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f1faee;
+    font-size: larger;
+}
+
+.cell:hover {
+    background-color: #a8dadc;
+}
+
+#sudokuField {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#sudokuFormArea {
+    display: flex;
+    justify-content: center;
+}
+
+#sudokuInput {
+    width: 370px;
+    height: 30px;
+    font-size: large;
+    border-radius: 10px;
+    border: 4px black solid
+}
+
+#solve {
+    width: 150px;
+    height: 35px;
+    font-size: large;
+    font-family: 'Rubik', sans-serif;
+    color: #f1faee;
+    background-color: #e63946;
+    border-radius: 10px;
+    border: 4px black solid;
+}
+
+#solve:hover {
+    background-color: #1d3557;
+}
+
+.cell:nth-of-type(3n) {
+    border-right: 7px black solid;
+}
+.cell:nth-of-type(3n + 1) {
+    border-left: 7px black solid;
+}
+
+tr:nth-of-type(3n) .cell {
+    border-bottom: 7px black solid;
+}
+
+tr:nth-child(1) .cell {
+    border-top: 7px black solid;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.beingSolvedColor {
+    background-color: #E63946;
+}
+
+.solved {
+    background-color: #1d3557;
+    color: #f1faee;
+}

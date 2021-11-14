@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="css_reset.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>SUDOKU SOLVER</h1>
+    <div id="sudokuField">
+        <table id="table">
+            <tr>
+                <td class="cell" id="c0">0</td>
+                <td class="cell" id="c1">0</td>
+                <td class="cell" id="c2">0</td>
+                <td class="cell" id="c3">0</td>
+                <td class="cell" id="c4">0</td>
+                <td class="cell" id="c5">0</td>
+                <td class="cell" id="c6">0</td>
+                <td class="cell" id="c7">0</td>
+                <td class="cell" id="c8">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c9">0</td>
+                <td class="cell" id="c10">0</td>
+                <td class="cell" id="c11">0</td>
+                <td class="cell" id="c12">0</td>
+                <td class="cell" id="c13">0</td>
+                <td class="cell" id="c14">0</td>
+                <td class="cell" id="c15">0</td>
+                <td class="cell" id="c16">0</td>
+                <td class="cell" id="c17">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c18">0</td>
+                <td class="cell" id="c19">0</td>
+                <td class="cell" id="c20">0</td>
+                <td class="cell" id="c21">0</td>
+                <td class="cell" id="c22">0</td>
+                <td class="cell" id="c23">0</td>
+                <td class="cell" id="c24">0</td>
+                <td class="cell" id="c25">0</td>
+                <td class="cell" id="c26">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c27">0</td>
+                <td class="cell" id="c28">0</td>
+                <td class="cell" id="c29">0</td>
+                <td class="cell" id="c30">0</td>
+                <td class="cell" id="c31">0</td>
+                <td class="cell" id="c32">0</td>
+                <td class="cell" id="c33">0</td>
+                <td class="cell" id="c34">0</td>
+                <td class="cell" id="c35">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c36">0</td>
+                <td class="cell" id="c37">0</td>
+                <td class="cell" id="c38">0</td>
+                <td class="cell" id="c39">0</td>
+                <td class="cell" id="c40">0</td>
+                <td class="cell" id="c41">0</td>
+                <td class="cell" id="c42">0</td>
+                <td class="cell" id="c43">0</td>
+                <td class="cell" id="c44">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c45">0</td>
+                <td class="cell" id="c46">0</td>
+                <td class="cell" id="c47">0</td>
+                <td class="cell" id="c48">0</td>
+                <td class="cell" id="c49">0</td>
+                <td class="cell" id="c50">0</td>
+                <td class="cell" id="c51">0</td>
+                <td class="cell" id="c52">0</td>
+                <td class="cell" id="c53">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c54">0</td>
+                <td class="cell" id="c55">0</td>
+                <td class="cell" id="c56">0</td>
+                <td class="cell" id="c57">0</td>
+                <td class="cell" id="c58">0</td>
+                <td class="cell" id="c59">0</td>
+                <td class="cell" id="c60">0</td>
+                <td class="cell" id="c61">0</td>
+                <td class="cell" id="c62">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c63">0</td>
+                <td class="cell" id="c64">0</td>
+                <td class="cell" id="c65">0</td>
+                <td class="cell" id="c66">0</td>
+                <td class="cell" id="c67">0</td>
+                <td class="cell" id="c68">0</td>
+                <td class="cell" id="c69">0</td>
+                <td class="cell" id="c70">0</td>
+                <td class="cell" id="c71">0</td>
+            </tr>
+            <tr>
+                <td class="cell" id="c72">0</td>
+                <td class="cell" id="c73">0</td>
+                <td class="cell" id="c74">0</td>
+                <td class="cell" id="c75">0</td>
+                <td class="cell" id="c76">0</td>
+                <td class="cell" id="c77">0</td>
+                <td class="cell" id="c78">0</td>
+                <td class="cell" id="c79">0</td>
+                <td class="cell" id="c80">0</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="sudokuFormArea">
+        <form action="" id="sudokuForm">
+            <input type="text" id="sudokuInput">
+            <button id="solve">SOLVE !</button>
+        </form>
+    </div>
+
+    <script src="sudoku.js">0</script>
+</body>
+
+</html>
