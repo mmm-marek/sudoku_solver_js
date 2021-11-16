@@ -42,23 +42,6 @@ function isCorrect(sudoku, row, col, number) {
         && isCorrectInSquare(sudoku, row, col, number);
 }
 
-
-// ------------------------PARSE INPUT------------------------
-
-function parseInput(sudokuString, cells) {
-    const sudoku = [[], [], [], [], [], [], [], [], []];
-
-    for (let row = 0; row < 9; row++) {
-        for (let col = 0; col < 9; col++) {
-            let number_to_be_inserted = parseInt(sudokuString[(row * 9) + col]);
-            sudoku[row][col] = number_to_be_inserted;
-            cells[row * 9 + col].innerText = number_to_be_inserted;
-        }
-    }
-
-    return sudoku;
-}
-
 // ------------------------STYLE CELL-------------------------
 
 async function wait(ms) {
@@ -69,7 +52,14 @@ async function wait(ms) {
 function resetCell(sudoku, cells, row, col) {
     sudoku[row][col] = 0;
     cells[row * 9 + col].innerText = 0;
-    cells[row * 9 + col].classList.remove("beingSolvedColor");
+    cells[row * 9 + col].classList.remove("beingSolvedColor", "solved");
+}
+
+
+function setCell(sudoku, cells, row, col, number_to_be_inserted) {
+    resetCell(sudoku, cells, row, col);
+    sudoku[row][col] = number_to_be_inserted;
+    cells[row * 9 + col].innerText = number_to_be_inserted;
 }
 
 
@@ -84,6 +74,21 @@ async function solvedCell(cells, row, col) {
     await wait(1);
     cells[row * 9 + col].classList.add("solved");
     return true;
+}
+
+// ------------------------PARSE INPUT------------------------
+
+function parseInput(sudokuString, cells) {
+    const sudoku = [[], [], [], [], [], [], [], [], []];
+
+    for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+            let number_to_be_inserted = parseInt(sudokuString[(row * 9) + col]);
+            setCell(sudoku, cells, row, col, number_to_be_inserted);
+        }
+    }
+
+    return sudoku;
 }
 
 // ---------------------------SOLVE---------------------------
@@ -142,8 +147,12 @@ sudokuForm.addEventListener("submit", async (e) => {
 
     const sudokuInput = document.querySelector("#sudokuInput");
     const cells = document.querySelectorAll("td");
+    const button = document.querySelector("#solve");
+    button.disabled = true;
 
     const sudoku = parseInput(sudokuInput.value, cells);
 
     await backtrackSolution(sudoku, cells);
+    sudokuInput.value = "";
+    button.disabled = false;
 })
