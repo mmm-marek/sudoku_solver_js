@@ -1,6 +1,10 @@
 body {
     font-family: 'Rubik', sans-serif;
     background-color: #a8dadc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cell {
@@ -18,16 +22,8 @@ body {
 }
 
 #sudokuField {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
     padding-bottom: 20px;
     padding-top: 20px;
-}
-
-#sudokuFormArea {
-    display: flex;
-    justify-content: center;
 }
 
 #sudokuInput {
@@ -73,8 +69,6 @@ table {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
     font-size: 40px;
     margin-top: 20px;
 }
