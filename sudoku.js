@@ -4,7 +4,7 @@
 // -------------------FIND CORRECT NUMBER---------------------
 function isCorrectInRow(sudoku, row, number) {
     for (let col = 0; col < 9; col++) {
-        if (number == sudoku[row][col]) {
+        if (number === sudoku[row][col]) {
             return false;
         }
     }
@@ -14,7 +14,7 @@ function isCorrectInRow(sudoku, row, number) {
 
 function isCorrectInCol(sudoku, col, number) {
     for (let row = 0; row < 9; row++) {
-        if (number == sudoku[row][col]) {
+        if (number === sudoku[row][col]) {
             return false;
         }
     }
@@ -27,7 +27,7 @@ function isCorrectInSquare(sudoku, orig_row, orig_col, number) {
     const col_square = (Math.floor(orig_col / 3) * 3);
     for (let row = row_square; row < row_square + 3; row++) {
         for (let col = col_square; col < col_square + 3; col++) {
-            if (number == sudoku[row][col]) {
+            if (number === sudoku[row][col]) {
                 return false;
             }
         }
@@ -50,8 +50,9 @@ function parseInput(sudokuString, cells) {
 
     for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
-            sudoku[row][col] = sudokuString[(row * 9) + col];
-            cells[row * 9 + col].innerText = sudokuString[row * 9 + col];
+            let number_to_be_inserted = parseInt(sudokuString[(row * 9) + col]);
+            sudoku[row][col] = number_to_be_inserted;
+            cells[row * 9 + col].innerText = number_to_be_inserted;
         }
     }
 
@@ -66,7 +67,7 @@ async function wait(ms) {
 
 
 function resetCell(sudoku, cells, row, col) {
-    sudoku[row][col] = "0";
+    sudoku[row][col] = 0;
     cells[row * 9 + col].innerText = 0;
     cells[row * 9 + col].classList.remove("beingSolvedColor");
 }
@@ -95,7 +96,7 @@ function noEmptyCells(row, col) {
 function findEmpty(sudoku) {
     for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
-            if (sudoku[row][col] === "0") {
+            if (sudoku[row][col] === 0) {
                 return [row, col];
             }
         }
