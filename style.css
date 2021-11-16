@@ -73,6 +73,11 @@ h1 {
     margin-top: 20px;
 }
 
+#example {
+    color: #f1faee;
+    margin-top: 2em;
+}
+
 .beingSolvedColor {
     background-color: #E63946;
 }
