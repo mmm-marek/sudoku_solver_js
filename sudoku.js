@@ -76,7 +76,19 @@ async function solvedCell(cells, row, col) {
     return true;
 }
 
-// ------------------------PARSE INPUT------------------------
+// ------------------------PARSE & VERIFY INPUT------------------------
+function verifyInput(sudokuInput) {
+    if (sudokuInput.length != 81) {
+        return false;
+    }
+    for (let char of sudokuInput) {
+        if (isNaN(char)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 function parseInput(sudokuString, cells) {
     const sudoku = [[], [], [], [], [], [], [], [], []];
@@ -140,19 +152,34 @@ async function backtrackSolution(sudoku, cells) {
 
 
 // ----------------------------MAIN---------------------------
+function restoreInput(sudokuInput, button) {
+    sudokuInput.value = "";
+    button.disabled = false;
+}
+
+
+function querySelecting() {
+    const sudokuInput = document.querySelector("#sudokuInput");
+    const cells = document.querySelectorAll("td");
+    const button = document.querySelector("#solve");
+    button.disabled = true;
+    return { sudokuInput, cells, button };
+}
 
 const sudokuForm = document.querySelector("#sudokuForm");
 sudokuForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const sudokuInput = document.querySelector("#sudokuInput");
-    const cells = document.querySelectorAll("td");
-    const button = document.querySelector("#solve");
-    button.disabled = true;
+    const { sudokuInput, cells, button } = querySelecting();
 
+    if (!verifyInput(sudokuInput.value)) {
+        alert("Wrong format of input.");
+        return restoreInput(sudokuInput, button);
+    }
     const sudoku = parseInput(sudokuInput.value, cells);
 
-    await backtrackSolution(sudoku, cells);
-    sudokuInput.value = "";
-    button.disabled = false;
+    if (!await backtrackSolution(sudoku, cells)) {
+        alert("This sudoku has no solution");
+    }
+    return restoreInput(sudokuInput, button);
 })
